@@ -1,6 +1,6 @@
 import React from "react";
 
-const Todo = ({ todo, text, todos, setTodos }) => {
+const Todo = ({ todo, text, todos, setTodos, setEditTodo }) => {
     const deleteHandler = () => {
         setTodos(todos.filter(el => el.id !== todo.id))
     };
@@ -15,8 +15,9 @@ const Todo = ({ todo, text, todos, setTodos }) => {
         }))
     };
 
-    const updateHandler = (todoId, newValue) => {
-        console.log("first")
+    const editHandler = (todoId, newValue) => {
+        const findTodo = todos.find((el) => el.id === todo.id)
+        setEditTodo(findTodo)
     }
 
     return (
@@ -25,7 +26,7 @@ const Todo = ({ todo, text, todos, setTodos }) => {
             <button className="complete-btn" onClick={completeHandler}>
                 <i className="fas fa-check"></i>
             </button>
-            <button className="edit-btn" onClick={updateHandler}>
+            <button className="edit-btn" onClick={editHandler}>
                 <i className="fas fa-pen"></i>
             </button>
             <button className="trash-btn" onClick={deleteHandler}>

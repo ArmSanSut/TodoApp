@@ -6,6 +6,7 @@ import TodoList from './components/TodoList';
 function App() {
   const [inputText, setInputText] = useState("")
   const [todos, setTodos] = useState([])
+  const [editTodo, setEditTodo] = useState(null)
 
   useEffect(() => {
     getLocalTodo();
@@ -16,12 +17,12 @@ function App() {
   }, [todos]);
 
   const saveLocalTodo = () => {
-      localStorage.setItem('todos', JSON.stringify(todos))
+    localStorage.setItem('todos', JSON.stringify(todos))
   }
 
   const getLocalTodo = () => {
     if (localStorage.getItem('todos') === null) {
-      localStorage.setItem('todos', JSON.stringify([])) 
+      localStorage.setItem('todos', JSON.stringify([]))
     } else {
       let todoLocal = JSON.parse(localStorage.getItem('todos'))
       setTodos(todoLocal)
@@ -32,8 +33,20 @@ function App() {
       <header>
         <h1>Todo's Lists</h1>
       </header>
-      <Form inputText = {inputText} todos = {todos} setTodos={setTodos} setInputText={setInputText}/>
-      <TodoList todos = {todos} setTodos= {setTodos}/>
+      <Form
+        inputText={inputText}
+        todos={todos}
+        setTodos={setTodos}
+        setInputText={setInputText}
+        editTodo={editTodo}
+        setEditTodo={setEditTodo}
+      />
+      <TodoList
+        todos={todos}
+        setTodos={setTodos}
+        editTodo={editTodo}
+        setEditTodo={setEditTodo}
+      />
     </div>
   );
 }
