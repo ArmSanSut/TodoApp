@@ -4,10 +4,26 @@
   box-sizing: border-box;
 }
 body {
-  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  background-image: radial-gradient(circle, #4676bd, #7377c3, #9877c3, #ba76be, #d677b5);
   color: white;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
+}
+div#root {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  transform: translateX(30%);
+  
+}
+header h1 {
+  color: black;
+}
+.App {
+  background-color: 	#D8D8D8;
+  width: 35%;
+  border-radius: 50px;
+  padding-bottom: 4rem;
 }
 header {
   font-size: 2rem;
@@ -58,11 +74,26 @@ form button:hover {
   align-items: center;
   transition: all 1s ease;
 }
+
+.todo-input{
+  width: 65%;
+  border-radius: 50px 0px 0px 50px;
+}
+
 .filter-todo {
   padding: 1rem;
 }
 .todo li {
   flex: 1;
+}
+
+.todo {
+  border-radius: 50px 0px 0px 50px;  
+}
+
+li.todo-item {
+  padding-left: 1rem;
+  padding-right: 2rem;
 }
 
 .trash-btn,
